@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useLang } from "@/context/LanguageContext";
 import { useIndustry } from "@/context/IndustryContext";
@@ -25,28 +24,36 @@ export default function Hero() {
 
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <section
       ref={sectionRef}
       className="relative min-h-screen w-full overflow-hidden bg-black"
     >
-      {/* Background */}
+      {/* YouTube Video Background */}
       <motion.div
         className="absolute inset-0"
         style={{ y: imageY, scale: imageScale }}
       >
-        <Image
-          src="/images/formaxr-hero.jpg"
-          alt={t("FormaXR — Studio AI Agentico per 3D XR-Ready", "FormaXR — Agentic AI Studio for XR-Ready 3D")}
-          fill
-          className="object-cover object-[center_30%]"
-          priority
-          sizes="100vw"
-        />
+        {isMounted && (
+          <div className="absolute inset-0 overflow-hidden">
+            <iframe
+              src="https://www.youtube.com/embed/IXc40o5kTIw?autoplay=1&mute=1&loop=1&playlist=IXc40o5kTIw&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&vq=hd1080"
+              title="FormaXR"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              className="pointer-events-none absolute top-1/2 left-1/2 h-[56.25vw] min-h-full w-screen min-w-[177.78vh] -translate-x-1/2 -translate-y-1/2 border-0"
+            />
+          </div>
+        )}
       </motion.div>
 
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/95" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black" />
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-black to-transparent" />
 
       {/* Content */}
