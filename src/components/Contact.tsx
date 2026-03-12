@@ -24,7 +24,7 @@ export default function Contact() {
       `Nome: ${name}\nStudio: ${studio}\nEmail: ${email}\nTelefono: ${phone || "N/A"}\n\nMessaggio:\n${message || "N/A"}`
     );
 
-    window.location.href = `mailto:nicolas.barale@formaxr.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:info@formaxr.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
   }
 
