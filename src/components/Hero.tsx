@@ -41,13 +41,12 @@ export default function Hero() {
         style={{ y: imageY, scale: imageScale }}
       >
         {isMounted && (
-          <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-[-80px] overflow-hidden">
             <iframe
-              src="https://www.youtube.com/embed/IXc40o5kTIw?autoplay=1&mute=1&loop=1&playlist=IXc40o5kTIw&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&vq=hd1080"
+              src="https://www.youtube.com/embed/IXc40o5kTIw?autoplay=1&mute=1&loop=1&playlist=IXc40o5kTIw&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&iv_load_policy=3&disablekb=1"
               title="FormaXR"
               allow="autoplay; encrypted-media"
-              allowFullScreen
-              className="pointer-events-none absolute top-1/2 left-1/2 h-[56.25vw] min-h-full w-screen min-w-[177.78vh] -translate-x-1/2 -translate-y-1/2 border-0"
+              className="pointer-events-none absolute top-1/2 left-1/2 h-[max(calc(100%+160px),56.25vw)] w-[max(calc(100%+160px),177.78vh)] -translate-x-1/2 -translate-y-1/2 border-0 scale-[1.2]"
             />
           </div>
         )}
