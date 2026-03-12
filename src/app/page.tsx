@@ -15,6 +15,7 @@ import Compliance from "@/components/Compliance";
 import WhiteLabel from "@/components/WhiteLabel";
 import ClosingStatement from "@/components/ClosingStatement";
 import Contact from "@/components/Contact";
+import CompatibleSoftware from "@/components/CompatibleSoftware";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -28,6 +29,7 @@ export default function Home() {
           <StatsBar />
           <ProblemStatement />
           <FeatureCards />
+          <CompatibleSoftware />
           <ProfessionalRoles />
           <HowItWorks />
           <Security />
