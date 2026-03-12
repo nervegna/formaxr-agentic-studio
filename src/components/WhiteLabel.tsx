@@ -1,7 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useLang } from "@/context/LanguageContext";
+
+const hardwareImages = [
+  { src: "/images/device-card.png", alt: "FormaXR Device" },
+  { src: "/images/device-hub.png", alt: "FormaXR Hub" },
+  { src: "/images/device-server.jpg", alt: "FormaXR Server" },
+  { src: "/images/device-rack.jpg", alt: "FormaXR Infrastructure" },
+];
 
 function PaletteIcon() {
   return (
@@ -113,6 +121,27 @@ export default function WhiteLabel() {
               <p className="mt-2 text-sm leading-relaxed text-[#888]">
                 {pillar.description}
               </p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Hardware Gallery */}
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+          {hardwareImages.map((img, i) => (
+            <motion.div
+              key={img.src}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ delay: i * 0.1, duration: 0.5, ease: "easeOut" }}
+              className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/[0.06]"
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                className="object-cover"
+              />
             </motion.div>
           ))}
         </div>
